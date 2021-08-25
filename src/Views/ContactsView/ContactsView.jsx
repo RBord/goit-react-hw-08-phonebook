@@ -4,7 +4,7 @@ import ContactList from '../../Components/ContactList/ContactList';
 import Filter from '../../Components/Filter/Filter';
 import s from './ContactsView.module.css';
 
-const ContactsView = () => {
+function ContactsView() {
     return (
         <>
             <h1 className={s.title}>Phonebook</h1>
