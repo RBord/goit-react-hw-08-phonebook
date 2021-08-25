@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import ContactsView from '../../Views/ContactsView';
+import ContactsView from '../../Views/ContactsView/ContactsView';
 import HomeView from '../../Views/HomeView';
 import RegisterView from '../../Views/RegisterView/RegisterView';
 import LoginView from '../../Views/LoginView/LoginView';

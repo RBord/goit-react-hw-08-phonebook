@@ -2,6 +2,7 @@
   display: flex;
 
   margin-bottom: 10px;
+  justify-content: center;
 }
 .liItem {
   min-width: 250px;
@@ -13,9 +14,13 @@
   border-radius: 10px;
   padding: 0px 15px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .btn:hover,
 .btn:focus {
   background-color: #e48f3f;
   color: black;
+}
+.list {
+  text-align: center;
 }

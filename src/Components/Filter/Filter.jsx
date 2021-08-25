@@ -13,10 +13,12 @@ function Filter () {
     const dispatch = useDispatch();
 
     return (
-        <label htmlFor={nameInputId}>
-            Find contacts by Name
-            <input type="text" value={value} onChange={(evt) => dispatch(changeFilter(evt.target.value))} id={nameInputId} className={s.input}/>
-        </label>
+        <div className={s.container}>
+            <label htmlFor={nameInputId}>
+                Find contacts by Name
+                <input type="text" value={value} onChange={(evt) => dispatch(changeFilter(evt.target.value))} id={nameInputId} className={s.input}/>
+            </label>
+        </div>
     )
 }
 

@@ -48,7 +48,7 @@ function ContactForm() {
     };
 
     return (
-        <div>
+        <div className={s.container}>
             <form onSubmit={handleSubmit} className={s.form}>
                 <label htmlFor={nameInputId} className={s.label}><p className={s.text}>Name</p>
                     <input
