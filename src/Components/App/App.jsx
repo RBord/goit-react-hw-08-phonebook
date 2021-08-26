@@ -1,13 +1,22 @@
-import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import ContactsView from '../../Views/ContactsView/ContactsView';
 import HomeView from '../../Views/HomeView';
 import RegisterView from '../../Views/RegisterView/RegisterView';
 import LoginView from '../../Views/LoginView/LoginView';
 import Container from '../Container/Container';
 import AppBar from '../AppBar/AppBar';
+import { refresh } from '../../Redux/Auth/Auth-operations';
 
-export default function App () {
+export default function App() {
+    
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(refresh());
+    }, [dispatch]);
+
     return (
         <Container>
             <AppBar />

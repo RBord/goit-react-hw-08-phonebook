@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import shortid from 'shortid';
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsSelectors } from '../../Redux/Phonebook';
-import { addContact } from '../../Redux/Phonebook/phonebook-operations';
+import { addContact } from '../../Redux/Auth/Auth-operations';
 import s from '../ContactForm/ContactForm.module.css'
 
 const nameInputId = shortid.generate();
