@@ -1,13 +1,14 @@
 import { Switch, Route } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import ContactsView from '../../Views/ContactsView/ContactsView';
-import HomeView from '../../Views/HomeView';
-import RegisterView from '../../Views/RegisterView/RegisterView';
-import LoginView from '../../Views/LoginView/LoginView';
 import Container from '../Container/Container';
 import AppBar from '../AppBar/AppBar';
 import { refresh } from '../../Redux/Auth/Auth-operations';
+
+const ContactsView = lazy(() => import('../../Views/ContactsView/ContactsView'));
+const HomeView = lazy(() => import('../../Views/HomeView'));
+const RegisterView = lazy(() => import('../../Views/RegisterView/RegisterView'));
+const LoginView = lazy(() => import('../../Views/LoginView/LoginView'));
 
 export default function App() {
     
@@ -21,10 +22,12 @@ export default function App() {
         <Container>
             <AppBar />
             <Switch>
-                <Route exact path='/' component={HomeView} />
-                <Route path='/register' component={RegisterView} />
-                <Route path='/login' component={LoginView} />
-                <Route path='/contacts' component={ContactsView}/>
+                <Suspense fallback={<p>Загружаем...</p>}>
+                    <Route exact path='/' component={HomeView} />
+                    <Route path='/register' component={RegisterView} />
+                    <Route path='/login' component={LoginView} />
+                    <Route path='/contacts' component={ContactsView}/>
+                </Suspense>
             </Switch>
        </Container>
     )

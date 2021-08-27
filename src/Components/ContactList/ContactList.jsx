@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsSelectors } from '../../Redux/Phonebook';
-import { deleteContact, fetchContacts } from '../../Redux/Auth/Auth-operations';
+import { deleteContact, fetchContacts } from '../../Redux/Phonebook/phonebook-operations';
 import s from '../ContactList/ContactList.module.css';
 function ContactList () {
     const value = useSelector(state => contactsSelectors.getFiltredContacts(state));

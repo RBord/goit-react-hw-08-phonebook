@@ -61,43 +61,5 @@ export const refresh = createAsyncThunk(
   },
 );
 
-export const fetchContacts = createAsyncThunk(
-    'contacts/fetchContacts',
-    async () => {
-        try {
-          const { data } = await axios.get('/contacts');
-          token.set(data.token);
-          return data;
-        } catch (error) {
-          return console.log(error);
-        }
-    }
-);
 
-export const addContact = createAsyncThunk(
-    'contacts/addContact',
-    async ({ name, number }, {rejectWithValue}) => {
-        try {
-          const contact = { name, number };
-          const { data } = await axios.post('/contacts', contact);
-          token.set(data.token);
-          return data;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    }
-);
-
-export const deleteContact = createAsyncThunk(
-    'contacts/deleteContact',
-    async (contactId, { rejectWithValue }) => {
-        try {
-          const { data } = await axios.delete(`/contacts/${contactId}`);
-          token.set(data.token);
-          return contactId;
-        } catch (error) {
-            return rejectWithValue(error);
-        }
-    }
-);
 
