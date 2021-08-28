@@ -48,7 +48,7 @@ export const refresh = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      return state;
+      return thunkAPI.rejectWithValue();
     }
 
     token.set(persistedToken);
