@@ -7,6 +7,8 @@ import PrivateRoute from '../Routes/PrivateRoute';
 import PublicRoute from '../Routes/PublicRoute';
 import { refresh } from '../../Redux/Auth/Auth-operations';
 import authSelectors from '../../Redux/Auth/Auth-selectors';
+import Spinner from '../Spinner/Spinner';
+import s from './App.module.css';
 
 const ContactsView = lazy(() => import('../../Views/ContactsView/ContactsView'));
 const HomeView = lazy(() => import('../../Views/HomeView'));
@@ -27,7 +29,7 @@ export default function App() {
             <Container>
                 <AppBar />
                 <Switch>
-                    <Suspense fallback={<p>Загружаем...</p>}>
+                    <Suspense fallback={<div className={s.spinner}><Spinner /></div>}>
                         <PublicRoute exact path='/' >
                             <HomeView />
                         </PublicRoute>
